@@ -16,8 +16,8 @@ export class SongsController {
 	constructor(private readonly songsService: SongsService) {}
 
 	@Post()
-	create(@Body() createSongDto: CreateSongDto) {
-		return this.songsService.create(createSongDto);
+	async create(@Body() createSongDto: CreateSongDto): Promise<CreateSongDto> {
+		return await this.songsService.create(createSongDto);
 	}
 
 	@Get()

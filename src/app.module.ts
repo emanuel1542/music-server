@@ -1,8 +1,14 @@
 import { Module } from '@nestjs/common';
-import { SongsModule } from './songs/songs.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import { SongsModule } from './domain/songs/songs.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
-	imports: [SongsModule],
+	imports: [
+		SongsModule,
+		MongooseModule.forRoot('mongodb://localhost:9091/nest'),
+		CommonModule,
+	],
 	controllers: [],
 	providers: [],
 })
